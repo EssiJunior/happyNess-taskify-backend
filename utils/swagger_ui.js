@@ -19,6 +19,10 @@ const options = {
                 name: 'User',
                 description: 'APIs for managing users',
             },
+            {
+                name: 'Task',
+                description: 'APIs for managing tasks',
+            },
         ],
     },
     apis: ['*.js', './api/*.js']

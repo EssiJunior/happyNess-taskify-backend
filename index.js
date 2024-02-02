@@ -8,15 +8,22 @@ require('dotenv').config();
 // Swagger UI
 const swaggerUi = require('swagger-ui-express');
 const { swaggerSpec } = require("./utils/swagger_ui")
+// Database connection
+const {connect_to_db} = require("./utils/db_connection")
 //  =============================== ======== ===============================
 
 const PORT = process.env.PORT || 4000
 
 const app = express();
 
+// Connect to database
+connect_to_db()
+
+// Launch server
 app.listen(PORT, function() {
     console.log(`[INFO]: Server is running on port ${PORT}`);
 });
+
 app.use(cors({
     origin: ["http://localhost:3000" ],
     methods: ["GET", "POST", "DELETE", "PATCH"],
@@ -24,6 +31,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 /**
  * @openapi
