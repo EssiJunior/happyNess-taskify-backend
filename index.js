@@ -54,3 +54,4 @@ app.use("/api", taskRouter)
 app.use("/api", userRouter)
 
 // ---- --------- --------------------------------------------------------
+module.exports = app

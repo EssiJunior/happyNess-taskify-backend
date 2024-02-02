@@ -15,7 +15,10 @@ require('dotenv').config();
 //         console.error('Error creating database', err);
 // });
 
-const sequelize = new Sequelize(`${process.env.DB_DIALECT}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:3306/${process.env.DB_NAME}`, );
+const sequelize = new Sequelize(`${process.env.DB_DIALECT}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:3306/${process.env.DB_NAME}`, {
+    logging: false
+  }
+);
 
 function connect() {
     sequelize.authenticate()

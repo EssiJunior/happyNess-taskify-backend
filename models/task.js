@@ -24,7 +24,7 @@ db.sync()
     console.log('[INFO]: Synced table Task!');
 })
 .catch(err => {
-    console.error('[Error]: Error syncing table Task', err);
+    console.log('[Error]: Error syncing table Task', err);
 });
 
 

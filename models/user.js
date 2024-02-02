@@ -27,7 +27,7 @@ db.sync()
     console.log('[INFO]: Synced table User!');
 })
 .catch(err => {
-    console.error('[Error]: Error syncing table User', err);
+    console.log('[Error]: Error syncing table User', err);
 });
 
 
