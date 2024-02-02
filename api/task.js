@@ -122,7 +122,7 @@ router.patch('/task/title/:id', updateTask)
  *       404:
  *         description: Task not found
  */
-router.patch('/task/title/:id', updateTask)
+router.patch('/task/status/:id', updateTask)
 
 
 /**
