@@ -28,6 +28,7 @@ function connect() {
     
     // Create Tables
     require("../models/task")
+    require("../models/user")
 }
 
 function close() {

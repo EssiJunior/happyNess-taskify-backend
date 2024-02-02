@@ -5,6 +5,7 @@ const cors = require("cors")
 require('dotenv').config();
 // API routers import
 const taskRouter = require("./api/task")
+const userRouter = require("./api/user")
 // Swagger UI
 const swaggerUi = require('swagger-ui-express');
 const { swaggerSpec } = require("./utils/swagger_ui")
@@ -44,10 +45,12 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  *              description: OK!
  */
 
-// Endpoints
+// --- Endpoints --------------------------------------------------------
 app.get('/', function(req, res) {
     res.send('Welcome to taskify, the task management app developped for the intergration test to HappyNess.');
     }
 );
-
 app.use("/api", taskRouter)
+app.use("/api", userRouter)
+
+// ---- --------- --------------------------------------------------------
