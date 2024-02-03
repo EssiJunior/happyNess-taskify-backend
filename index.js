@@ -13,7 +13,7 @@ const { swaggerSpec } = require("./utils/swagger_ui")
 const {connect_to_db} = require("./utils/db_connection")
 //  =============================== ======== ===============================
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 5000
 
 const app = express();
 
@@ -47,11 +47,11 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // --- Endpoints --------------------------------------------------------
 app.get('/', function(req, res) {
-    res.send('Welcome to taskify, the task management app developped for the intergration test to HappyNess.');
+    res.status(200).send('Welcome to taskify.');
     }
 );
 app.use("/api", taskRouter)
 app.use("/api", userRouter)
 
 // ---- --------- --------------------------------------------------------
-module.exports = app
+module.exports.application = app

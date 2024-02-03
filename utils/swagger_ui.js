@@ -5,12 +5,12 @@ const options = {
         openapi: "3.0.0",
         info: {
             title: 'Taskify (Task management app)',
-            description: 'APIs of the Taskify (Task management app) ',
+            description: 'APIs of the Taskify, the task management app developped for the intergration test to HappyNess. ',
             version: "1.0.0",
         },
         servers: [
             {
-                url: 'http://localhost:4000/',
+                url: 'http://localhost:5000/',
                 description: 'Development server'
             },
         ],

@@ -3,7 +3,7 @@ const {UserModel} = require('../models/user')
 module.exports.signUp = async(req, res) => {
     try {
         const user = await UserModel.create(req.body);
-            res.json(user);
+            res.status(201).json(user);
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
@@ -18,7 +18,7 @@ module.exports.signIn = async(req, res) => {
     
         if (user) {
             // If user found, return the user object
-            res.json(user);
+            res.status(200).json(user);
         } else {
             // If user not found, return 404 Not Found status
             res.status(404).json({ message: 'User not found' });
@@ -33,7 +33,7 @@ module.exports.signIn = async(req, res) => {
 module.exports.getUsers = async(req, res) => {
     try {
         const users = await UserModel.findAll();
-        res.json(users);
+        res.status(200).json(users);
     } catch (err) {
         res.status(400).json({ error: err.message });
     }

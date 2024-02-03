@@ -56,7 +56,7 @@ To view the API documentation using Swagger UI, visit [localhost:4000/docs](http
 ### `run test`
 
 ```sh
-npm test
+npx jest
 ```
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.

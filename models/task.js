@@ -20,12 +20,12 @@ const Task = db.define('Task', {
 
 // Sync the model with the database to create the table
 db.sync()
-.then(() => {
-    console.log('[INFO]: Synced table Task!');
-})
-.catch(err => {
-    console.log('[Error]: Error syncing table Task', err);
-});
+// .then(() => {
+//     console.log('[INFO]: Synced table Task!');
+// })
+// .catch(err => {
+//     console.error('[Error]: Error syncing table Task', err);
+// });
 
 
 

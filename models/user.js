@@ -23,12 +23,12 @@ const User = db.define('User', {
 
 // Sync the model with the database to create the table
 db.sync()
-.then(() => {
-    console.log('[INFO]: Synced table User!');
-})
-.catch(err => {
-    console.log('[Error]: Error syncing table User', err);
-});
+// .then(() => {
+//     console.log('[INFO]: Synced table User!');
+// })
+// .catch(err => {
+//     console.error('[Error]: Error syncing table User', err);
+// });
 
 
 module.exports.UserModel = User

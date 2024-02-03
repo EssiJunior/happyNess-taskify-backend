@@ -3,7 +3,7 @@ const {TaskModel} = require('../models/task')
 module.exports.createTask = async(req, res) => {
     try {
         const task = await TaskModel.create(req.body);
-            res.json(task);
+            res.status(201).json(task);
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
@@ -12,7 +12,7 @@ module.exports.createTask = async(req, res) => {
 module.exports.getTasks = async(req, res) => {
     try {
         const tasks = await TaskModel.findAll();
-        res.json(tasks);
+        res.status(200).json(tasks);
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
@@ -22,7 +22,7 @@ module.exports.getTaskById= async(req, res) => {
     try {
         const task = await TaskModel.findByPk(req.params.id);
         if (task) {
-            res.json(task);
+            res.status(200).json(task);
         } else {
             res.status(404).json({ message: 'Task not found' });
         }
@@ -37,7 +37,7 @@ module.exports.updateTask = async(req, res) => {
             where: { id: req.params.id }
         });
         if (updated) {
-            res.json({ message: 'Task updated successfully' });
+            res.status(200).json({ message: 'Task updated successfully' });
         } else {
             res.status(404).json({ message: 'Task not found' });
         }
@@ -52,7 +52,7 @@ module.exports.removeTask = async (req, res) => {
             where: { id: req.params.id }
         });
         if (deleted) {
-            res.json({ message: 'Task deleted successfully' });
+            res.status(200).json({ message: 'Task deleted successfully' });
         } else {
             res.status(404).json({ message: 'Task not found' });
         }
