@@ -18,6 +18,8 @@ const router = require("express").Router();
  *             properties:
  *               title:
  *                 type: string
+ *               userId:
+ *                 type: integer
  *                      
  *      responses:
  *          201:

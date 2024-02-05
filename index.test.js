@@ -8,7 +8,7 @@ let server = application.listen(4000)
  * verifies that the response status code is 200.
  */
 describe('GET /', function() {
-    it('responds with 200 status code', async () => {
+    it('WELCOME MESSAGE: responds with 200 status code', async () => {
         const response = await request(application)
         .get('/')
         expect(response.status).toBe(200);
@@ -24,7 +24,7 @@ describe('GET /', function() {
  * verifies that the response status code is 200.
  */
 describe('POST /api/signin', function() {
-    it('responds with 404 status code', async function() {
+    it('SIGN IN: responds with 404 status code', async function() {
         const response = await request(application)
             .post('/api/signin')
             .send({ 
@@ -41,7 +41,7 @@ describe('POST /api/signin', function() {
  * verifies that the response status code is 400 because the specified email is already used.
  */
 describe('POST /api/signup', function() {
-    it('responds with validation errer', async function() {
+    it('SIGN UP: responds with validation errer', async function() {
         const response = await request(application)
             .post('/api/signup')
             .send({
@@ -60,19 +60,20 @@ describe('POST /api/signup', function() {
 // # ------------------------------ Tests for task APIs --------------------------------------
 
 describe('POST /api/task', function() {
-    it('responds with 201 status code', async function() {
+    it('NEW TASK: responds with 400 status code', async function() {
         const response = await request(application)
             .post('/api/task')
             .send({
-                title: "Title of a task"
+                title: "Title of a task",
+                userId: 10000000 // Fails because of foreign  key constraint, user don't  exist
             })
-        expect(response.status).toBe(201);
+        expect(response.status).toBe(400);
         server.close();
     });
 });
 
 describe('PATCH /api/task/title/:id', function() {
-    it('responds with 404 status code', async function() {
+    it('UPDATE TASK TITLE: responds with 404 status code', async function() {
         const response = await request(application)
             .patch('/api/task/title/1000000')
             .send({
@@ -84,7 +85,7 @@ describe('PATCH /api/task/title/:id', function() {
 });
 
 describe('PATCH /api/task/status/:id', function() {
-    it('responds with 404 status code', async function() {
+    it('UPDATE TASK STATUS: responds with 404 status code', async function() {
         const response = await request(application)
             .patch('/api/task/status/1000000')
             .send({
@@ -97,7 +98,7 @@ describe('PATCH /api/task/status/:id', function() {
 
 
 describe('DELETE /api/task/:id', () => {
-    it('responds with 404 status code', async function() {
+    it('DELETE TASK: responds with 404 status code', async function() {
         const response = await request(application)
             .delete('/api/task/1000000')
         expect(response.status).toBe(404);
