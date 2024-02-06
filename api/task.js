@@ -1,4 +1,4 @@
-const { createTask,getTaskById, getTasks, updateTask, removeTask } = require('../controllers/task')
+const { createTask,getTaskById, getTasks, getUserTasks,updateTask, removeTask } = require('../controllers/task')
 const router = require("express").Router();
 
 /**
@@ -40,6 +40,29 @@ router.post('/task', createTask)
  *              description: Successfully displayed Tasks!
  */
 router.get('/tasks', getTasks)
+
+/**
+ * @swagger
+ * /api/tasks/{userID}:
+ *   get:
+ *     tags:
+ *      - Task
+ *     summary: Get a user's tasks
+ *     description: Gets a task by userID.
+ *     parameters:
+ *       - in: path
+ *         name: userID
+ *         required: true
+ *         description: ID of the user to get tasks to get
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Tasks successfully found
+ *       404:
+ *         description: Tasks not found
+ */
+router.get('/tasks/:userID', getUserTasks)
 
 /**
  * @swagger

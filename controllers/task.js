@@ -30,6 +30,18 @@ module.exports.getTaskById= async(req, res) => {
         res.status(500).json({ message: 'Error retrieving task' });
     }
 }
+module.exports.getUserTasks = async(req, res) => {
+    try {
+        const tasks = await TaskModel.findAll({where: {userID: req.params.userID}})
+        if (tasks) {
+            res.status(200).json(tasks);
+        } else {
+            res.status(404).json({ message: 'No task found for this user ' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving tasks' });
+    }
+}
 
 module.exports.updateTask = async(req, res) => {
     try {
