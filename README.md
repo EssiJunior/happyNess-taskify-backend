@@ -26,6 +26,12 @@ This code was written using [Express - JavaScript libary](https://expressjs.com/
 node --version
 ```
 
+> Make sure you have mysql server installed on your machine. Take a look at the [official guide](https://dev.mysql.com/downloads/mysql/) for installation. After installation, run the following command in your terminal for a double check.
+
+```sh
+mysql --version
+```
+
 > Environment variables
 
 Please make sure you create a `.env` file at the root of the source code (near the index.js file) and insert the following varriables
