@@ -4,20 +4,10 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 //  =============================== ======== ===============================
 
-// Define the database name in the connection string
-// var sequelize = new Sequelize(`${process.env.DB_DIALECT}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:3306`)
-
-// sequelize.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME}`)
-//     .then(() => {
-//         console.log('Database created or successfully connected to an existing database.');
-//     })
-//     .catch(err => {
-//         console.error('Error creating database', err);
-// });
 
 const sequelize = new Sequelize(`${process.env.DB_DIALECT}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:3306/${process.env.DB_NAME}`, {
     logging: false
-  }
+    }
 );
 
 function connect() {
