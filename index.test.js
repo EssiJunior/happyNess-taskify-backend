@@ -72,6 +72,15 @@ describe('POST /api/task', function() {
     });
 });
 
+describe('GET /api/tasks/:userID', function() {
+    it('GET TASKS OF A USER: responds with 200 status code', async function() {
+        const response = await request(application)
+            .get('/api/tasks/1000000')
+        expect(response.status).toBe(200);
+        server.close();
+    });
+});
+
 describe('PATCH /api/task/title/:id', function() {
     it('UPDATE TASK TITLE: responds with 404 status code', async function() {
         const response = await request(application)

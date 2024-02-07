@@ -13,7 +13,7 @@ const { swaggerSpec } = require("./utils/swagger_ui")
 const {connect_to_db} = require("./utils/db_connection")
 //  =============================== ======== ===============================
 
-const PORT = process.env.NODE_DOCKER_PORT || 5000
+const PORT = 5000
 
 const app = express();
 
@@ -47,7 +47,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // --- Endpoints --------------------------------------------------------
 app.get('/', function(req, res) {
-    res.status(200).send('Welcome to taskify.');
+    res.status(200).send('Welcome to taskify api server.');
     }
 );
 app.use("/api", taskRouter)
