@@ -26,15 +26,34 @@ This code was written using [Express - JavaScript libary](https://expressjs.com/
 node --version
 ```
 
+> Environment variables
+
+Please make sure you create a `.env` file at the root of the source code (near the index.js file) and insert the following varriables
+
+```sh
+DB_NAME = taskify
+
+DB_HOST = localhost
+DB_DIALECT = mysql
+DB_USERNAME = your_mysql_username
+DB_PASSWORD = your_mysql_password
+
+MYSQLDB_LOCAL_PORT=3306
+MYSQLDB_DOCKER_PORT=3306
+
+NODE_LOCAL_PORT=5000
+NODE_DOCKER_PORT = 5000
+```
+
 ### `→ STEP #1`
 > Open this code in your favorite code editor. We recommend you [VS Code](https://code.visualstudio.com/).
 
 
 ### `→ STEP #2`
 Install the project's dependencies found in the *_package.json_* file
-##### note thet the --legacy-peer-deps flag is used to resolve dependency conflicts that can overcome
+##### if an error occur, append (add to the end) with the `--legacy-peer-deps` flag
 ```sh
-npm install --legacy-peer-deps
+npm install 
 ```
 
 The command will take a while depending upon your internet speed.
@@ -45,8 +64,8 @@ Launch server
 ```sh
 npm start
 ```
-Available at [localhost:4000](http://localhost:4000/)<br><br>
-To view the API documentation using Swagger UI, visit [localhost:4000/docs](http://localhost:4000/docs)<br><hr>
+Available at [localhost:5000](http://localhost:5000/)<br><br>
+To view the API documentation using Swagger UI, visit [localhost:5000/docs](http://localhost:5000/docs) (RECOMMENDED)<br><hr>
 
 `That's it! 🥂`
 
@@ -56,7 +75,15 @@ To view the API documentation using Swagger UI, visit [localhost:4000/docs](http
 ### `run test`
 
 ```sh
-npx jest
+npm test
 ```
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the jest test runner.
+
+
+
+### `Troubleshooting`
+If you encounter an error of `Connection error: unknown database taskify` please create it manually by copy pasting the following query in your data UI or just create and name it `taskify`
+
+```sh
+CREATE DATABASE IF NOT EXISTS taskify
+```

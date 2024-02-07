@@ -4,7 +4,6 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 //  =============================== ======== ===============================
 
-
 const sequelize = new Sequelize(`${process.env.DB_DIALECT}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:3306/${process.env.DB_NAME}`, {
     logging: false
     }
