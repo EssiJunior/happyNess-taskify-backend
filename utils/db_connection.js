@@ -10,11 +10,15 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 //  =============================== ======== ===============================
 
-const sequelize = new Sequelize(`${process.env.DB_DIALECT}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:3306/${process.env.DB_NAME}`, {
-    logging: false
-    }
-);
+// const sequelize = new Sequelize(`${process.env.DB_DIALECT}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:3306/${process.env.DB_NAME}`, {
+//     logging: false
+//     }
+// );
 
+const sequelize = new Sequelize(`${process.env.DB_NAME}`, `${process.env.DB_USERNAME}`, `${process.env.DB_PASSWORD}`, {
+    host: `${process.env.DB_HOST}`,
+    dialect: 'mysql' 
+});
 function connect() {
     sequelize.authenticate()
         .then(() => {
