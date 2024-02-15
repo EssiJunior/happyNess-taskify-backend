@@ -22,6 +22,10 @@ const options = {
                 url: `http://localhost:${PORT}/`,
                 description: 'Development server'
             },
+            {
+                url: `https://taskify-uozt.onrender.com`,
+                description: 'Production server'
+            },
         ],
         tags: [
             {
