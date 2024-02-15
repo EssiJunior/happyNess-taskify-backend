@@ -32,7 +32,7 @@ app.listen(PORT, function() {
 });
 
 app.use(cors({
-    origin: ["http://localhost:3000" ],
+    origin: ["http://localhost:3000","https://e-taskify.vercel.app" ],
     methods: ["GET", "POST", "DELETE", "PATCH"],
     credentials: true,
 }));
