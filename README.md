@@ -1,5 +1,4 @@
 <div align="center" style="font-family:consolas;" >
-  <img src="./logo_brand.png" alt="HappyNess Logo" width="300"  style="margin:2rem;" >
   <h1>Welcome to the task management app (intergration test) backend repository</h1>
   <h3>Node.js based APIs source code</h3>
 </div>
