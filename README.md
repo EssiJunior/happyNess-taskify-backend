@@ -10,7 +10,7 @@
 Let's setup the app locally. First, you need to download this code 
 
 ```sh
-git clone https://github.com/EssiJunior/happyNess-taskify-backend.git
+git clone https://github.com/EssiJunior/taskify-backend.git
 ```
 
 
